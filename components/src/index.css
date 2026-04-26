@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-warm-50: #fafaf9;
+  --color-warm-100: #f5f5f4;
+  --color-warm-200: #e7e5e4;
+  --color-warm-300: #d6d3d1;
+  --color-warm-400: #a8a29e;
+  --color-warm-500: #78716c;
+  --color-warm-600: #57534e;
+  --color-warm-700: #44403c;
+  --color-warm-800: #292524;
+  --color-warm-900: #1c1917;
+  --color-warm-950: #0c0a09;
+
+  --color-accent-blue: #3b82f6;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-emerald: #10b981;
+  --color-accent-rose: #f43f5e;
+  --color-accent-amber: #f59e0b;
+
+  --font-sans: "Noto Sans KR", sans-serif;
+
+  --radius-xl: 1rem;
+
+  --shadow-glow-blue: 0 0 20px 0 rgba(59, 130, 246, 0.5);
+  --shadow-glow-purple: 0 0 20px 0 rgba(139, 92, 246, 0.5);
+  --shadow-glow-cyan: 0 0 20px 0 rgba(34, 211, 238, 0.5);
+  --shadow-glow-emerald: 0 0 20px 0 rgba(16, 185, 129, 0.5);
+  --shadow-glow-rose: 0 0 20px 0 rgba(244, 63, 94, 0.5);
+  --shadow-premium-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), 0 0 15px -5px rgba(59, 130, 246, 0.1);
+  --shadow-premium-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 0 25px -5px rgba(139, 92, 246, 0.1);
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 8s infinite ease-in-out;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      text-shadow: 0 0 10px var(--color-accent-blue), 0 0 20px var(--color-accent-purple);
+      opacity: 1;
+    }
+    50% {
+      text-shadow: 0 0 20px var(--color-accent-blue), 0 0 40px var(--color-accent-purple);
+      opacity: 0.8;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-warm-950 text-warm-100 antialiased font-sans;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple;
+  }
+  .gradient-text-warm {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent-rose to-accent-amber;
+  }
+  .glass-card {
+    @apply bg-warm-900/50 backdrop-blur-lg border border-warm-800/50 rounded-xl;
+  }
+  .hero-orb {
+    @apply absolute rounded-full opacity-20 blur-3xl;
+  }
+  .grid-overlay {
+    background-image:
+      linear-gradient(to right, var(--color-warm-800) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-warm-800) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    opacity: 0.2;
+  }
+  .btn-premium {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .btn-premium:hover {
+    @apply transform-gpu scale-105 shadow-lg;
+  }
+}
