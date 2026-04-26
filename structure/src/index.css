@@ -1,0 +1,78 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+@theme {
+  --color-warm-50: #fafaf9;
+  --color-warm-100: #f5f5f4;
+  --color-warm-200: #e7e5e4;
+  --color-warm-300: #d6d3d1;
+  --color-warm-400: #a8a29e;
+  --color-warm-500: #78716c;
+  --color-warm-600: #57534e;
+  --color-warm-700: #44403c;
+  --color-warm-800: #292524;
+  --color-warm-900: #1c1917;
+  --color-warm-950: #0c0a09;
+
+  --color-accent-blue: #3b82f6;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-emerald: #34d399;
+  --color-accent-rose: #f43f5e;
+  --color-accent-amber: #f59e0b;
+
+  --shadow-glow-blue: 0 0 25px 0 rgba(59, 130, 246, 0.4);
+  --shadow-glow-purple: 0 0 25px 0 rgba(139, 92, 246, 0.4);
+  --shadow-glow-cyan: 0 0 25px 0 rgba(34, 211, 238, 0.4);
+  --shadow-glow-emerald: 0 0 25px 0 rgba(52, 211, 153, 0.4);
+  --shadow-glow-rose: 0 0 25px 0 rgba(244, 63, 94, 0.4);
+  --shadow-premium-sm: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1), 0 0 15px -5px rgba(59, 130, 246, 0.1);
+  --shadow-premium-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1), 0 0 25px -8px rgba(59, 130, 246, 0.15);
+  
+  --animate-pulse-glow: pulse-glow 8s infinite ease-in-out;
+  --animate-float: float 6s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--color-accent-blue), 0 0 20px var(--color-accent-blue), 0 0 40px var(--color-accent-purple);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--color-accent-purple), 0 0 40px var(--color-accent-purple), 0 0 60px var(--color-accent-blue);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@layer base {
+  body {
+    @apply bg-warm-950 font-['Noto_Sans_KR'] text-warm-100 antialiased;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-blue to-accent-cyan bg-clip-text text-transparent;
+  }
+  .gradient-text-warm {
+    @apply bg-gradient-to-r from-accent-rose to-accent-amber bg-clip-text text-transparent;
+  }
+  .hero-orb {
+    @apply absolute rounded-full opacity-30 blur-3xl filter;
+  }
+  .grid-overlay {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+  }
+  .glass-card {
+    @apply bg-warm-900/40 backdrop-blur-lg border border-warm-800/50 rounded-2xl transition-all duration-300;
+  }
+  .btn-premium {
+    @apply transition-all duration-300 transform hover:scale-105;
+  }
+}
