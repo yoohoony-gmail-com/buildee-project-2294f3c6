@@ -3,7 +3,7 @@ import type { User, Project, PortfolioStats, Notification, Portfolio } from '../
 
 const MOCK_API_DELAY = 500; // 500ms delay
 
-const fetchWithDelay = <T>(data: T): Promise<T> => {
+const fetchWithDelay = <T extends {}>(data: T): Promise<T> => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(data);
