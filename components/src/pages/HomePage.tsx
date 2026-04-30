@@ -17,7 +17,7 @@ export default function HomePage() {
             ✨ 새로운 아이디어를 현실로
           </span>
           <h1 className="gradient-text text-5xl md:text-7xl font-bold tracking-tight mb-6 animate-pulse-glow">
-            창의적인 포트폴리오로<br /> 당신의 비전을 보여주세요
+            창의적인 포트폴리오로<br /> 당신의 비전을 보여주세요!
           </h1>
           <p className="text-warm-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             디자인, 개발, 예술 등 다양한 분야에서 당신의 독창적인 작업을 선보일 수 있는 프리미엄 플랫폼입니다.
